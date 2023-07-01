@@ -16,7 +16,7 @@ class Stack:
 
     def __init__(self):
         """Конструктор класса Stack"""
-        self.top = None
+        self.top: Node | None = None
 
     def push(self, data):
         """
@@ -32,4 +32,9 @@ class Stack:
 
         :return: данные удаленного элемента
         """
-        pass
+        if self.top is None:
+            return None
+
+        data = self.top.data
+        self.top = self.top.next_node
+        return data
